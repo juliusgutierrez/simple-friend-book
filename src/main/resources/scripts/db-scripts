@@ -1,0 +1,16 @@
+CREATE TABLE user (
+	id INT AUTO_INCREMENT,
+	username VARCHAR(100),
+	password VARCHAR(100),
+	firtname VARCHAR(255),
+	lastname VARCHAR(255),
+	PRIMARY KEY (id)
+)  ENGINE=INNODB;
+
+
+CREATE TABLE friends (
+	id INT AUTO_INCREMENT,
+	user_id INT,
+	friend_id INT,
+	PRIMARY KEY (id)
+)  ENGINE=INNODB;
