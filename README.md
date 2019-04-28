@@ -11,13 +11,16 @@ A simple project made in spring framework and mysql that do the following :
 ### Build
 * mvn clean install 
 
-### Run 
+### Prerequisites
+Before running the project, do first the following setup.
 * create a database name test or you can choose your own db, but you have to update the spring.datasource.url
 * add username and password of mysql to application.properties
+
+### Run 
 * mvn spring-boot:run
 
 ### Testing
-* Either run the test class
+* run in terminal : mvn test
 * for manual testing, import phonebook.postman_collection.json to postman
 
 
