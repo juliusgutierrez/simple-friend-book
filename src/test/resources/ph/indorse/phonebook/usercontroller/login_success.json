@@ -1,0 +1,12 @@
+{
+  "userId": 1,
+  "username": "pedropenduko",
+  "firstName": "pedro",
+  "lastName": "penduko",
+  "friendLists": [{
+    "userId": 2,
+    "username": "mariamakiling",
+    "firstName": "maria",
+    "lastName": "makiling"
+  }]
+}

@@ -1,20 +1,14 @@
 package ph.indorse.phonebook.controller;
 
-import org.assertj.core.api.BDDAssertions;
-import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import ph.indorse.phonebook.model.UserDTO;
 
 import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.hasItems;
 
-
-import static org.hamcrest.Matchers.is;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 
@@ -94,8 +88,8 @@ public class UserControllerTest extends ControllerTest {
         .content(mapToJson(pedro))
         .contentType(MediaType.APPLICATION_JSON_UTF8))
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$.firstName", is("pedro")))
-        .andExpect(jsonPath("$.lastName", is("penduko")));
+        .andExpect(content().json(
+            jsonResource("ph/indorse/phonebook/usercontroller/login_success.json")));
   }
 
   @Test
@@ -197,7 +191,6 @@ public class UserControllerTest extends ControllerTest {
         .andExpect(jsonPath("$.message",
             containsString("Failed, You can't un-friend yourself")));
   }
-
 
 
 }
