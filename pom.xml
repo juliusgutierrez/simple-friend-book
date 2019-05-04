@@ -118,16 +118,18 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>2.17</version>
+				<version>3.0.0</version>
 				<configuration>
 					<sourceDirectories>${project.build.sourceDirectory}</sourceDirectories>
-					<excludes>ph/com/irs/web/dao/*</excludes>
+					<excludes>ph/indorse/phonebook/dao/*</excludes>
+					<excludes>ph/indorse/phonebook/model/*</excludes>
+					<excludes>ph/indorse/phonebook/entity/*</excludes>
 				</configuration>
 				<dependencies>
 					<dependency>
 						<groupId>com.puppycrawl.tools</groupId>
 						<artifactId>checkstyle</artifactId>
-						<version>7.8.1</version>
+						<version>[8.18,)</version>
 					</dependency>
 				</dependencies>
 				<executions>
