@@ -1,13 +1,7 @@
 package ph.indorse.phonebook.controller;
 
-
-import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 import java.nio.charset.Charset;
 import org.apache.commons.io.IOUtils;
 import org.junit.Before;
