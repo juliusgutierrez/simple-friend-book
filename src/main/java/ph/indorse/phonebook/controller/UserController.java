@@ -1,5 +1,6 @@
 package ph.indorse.phonebook.controller;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +21,7 @@ public class UserController {
   private UserService userService;
 
   @PostMapping("/create")
-  public ResponseEntity createUser(@RequestBody UserDTO newUser) {
+  public ResponseEntity<ResponseDTO> createUser(@RequestBody UserDTO newUser) {
     userService.createNewUser(newUser);
     return ResponseEntity.ok(new ResponseDTO("User Created!"));
   }
@@ -31,7 +32,7 @@ public class UserController {
    * @return
    */
   @PostMapping("/login")
-  public ResponseEntity login(@RequestBody UserDTO userDTO) {
+  public ResponseEntity<UserDTO> login(@RequestBody UserDTO userDTO) {
     return ResponseEntity.ok(userService.login(userDTO.getUsername(), userDTO.getPassword()));
 
   }
@@ -44,7 +45,7 @@ public class UserController {
    * @return
    */
   @GetMapping("/search")
-  public ResponseEntity search(
+  public ResponseEntity<List<UserDTO>> search(
       @RequestParam(value = "firstname", required = false) String firstName,
       @RequestParam(value = "lastname", required = false) String lastName,
       @RequestParam(value = "username", required = false) String userName) {
@@ -60,7 +61,7 @@ public class UserController {
    * @return
    */
   @PostMapping("/add-friend")
-  public ResponseEntity addFriend(
+  public ResponseEntity<ResponseDTO> addFriend(
       @RequestParam(value = "user_id") Long userId,
       @RequestParam(value = "friend_username") String friendUserName) {
 
@@ -75,7 +76,7 @@ public class UserController {
    * @return
    */
   @PostMapping("/remove-friend")
-  public ResponseEntity removeFriend(
+  public ResponseEntity<ResponseDTO> removeFriend(
       @RequestParam(value = "user_id") Long userId,
       @RequestParam(value = "friend_username") String friendUserName) {
     String message = userService.removeFriend(userId, friendUserName);

@@ -157,7 +157,7 @@ public class UserServiceImpl implements UserService {
         }).collect(Collectors.toList());
 
     userDTO.setFriendLists(friendList);
-    //don't return the password, security purposes;
+    //don't return the password, security purposes
     userDTO.setPassword(null);
     return userDTO;
   }
@@ -188,7 +188,7 @@ public class UserServiceImpl implements UserService {
           + "uppercase, number, special char, atleast 8 char");
     }
 
-    //find user is already exist;
+    //find user is already exist
     userRepository.findByUsername(userDTO.getUsername())
         .ifPresent(user -> {
           throw new PhoneBookException("Username is already taken");

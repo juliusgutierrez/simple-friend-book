@@ -41,7 +41,6 @@ public class UserControllerTest extends ControllerTest {
     mvc().perform(MockMvcRequestBuilders.post("/user/create")
         .content(mapToJson(test))
         .contentType(MediaType.APPLICATION_JSON_UTF8))
-        .andExpect(status().is5xxServerError())
         .andExpect(jsonPath("$.message", containsString("Username is already taken")));
   }
 

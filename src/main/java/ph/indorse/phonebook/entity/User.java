@@ -106,10 +106,6 @@ public class User implements Serializable {
     private String firstName;
     private String lastName;
 
-
-    public UserBuilder() {
-    }
-
     public UserBuilder username(String username) {
       this.username = username;
       return this;
@@ -133,7 +129,6 @@ public class User implements Serializable {
     public User build() {
       return new User(this);
     }
-
 
   }
 }
